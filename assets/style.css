@@ -1,0 +1,1178 @@
+/* ===========================
+   GLOBAL DEFAULTS
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+/* ===========================
+   NAVIGATION BAR
+=========================== */
+.nav {
+    background: #d9d9d9;
+    color: black;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo {
+    font-size: 14px;
+}
+
+.nav .menu a {
+    margin-left: 25px;
+    color: black;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav .menu a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   LOGIN/REGISTER CENTER
+=========================== */
+.center-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    height: 100vh;
+    color: black;
+}
+
+.form-container,
+.login-box {
+    background: url("login-bg.jpg");
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-container h1,
+.login-box h1 {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.form-container input,
+.form-container select,
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container button,
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #4a4a4a;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form-container button:hover,
+.login-box button:hover {
+    background: #333;
+}
+
+.form-container p,
+.login-box p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.form-container a,
+.login-box a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* ===========================
+   HAMBURGER SYSTEM
+=========================== */
+/* Hidden checkbox */
+/* Hamburger Icon - FIXED VERSION */
+.menu-icon {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    background: white;
+    border: none;
+    color: grey;
+    padding: 8px 12px;
+    z-index: 9999;
+    border-radius: 5px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Move hamburger when sidebar is open */
+.menu-toggle:checked ~ .menu-icon {
+    right: 250px;  /* 260px sidebar width + 25px original right position */
+   background: #333;
+}
+
+.menu-icon:hover {
+    background: white;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background: #333;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    z-index: 9998;
+    overflow-y: auto;  /* Allow scrolling if content is long */
+}
+
+/* Show sidebar when checkbox is checked */
+.menu-toggle:checked ~ .sidebar {
+    right: 0;
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #444;
+    transition: background 0.3s ease;
+}
+
+.sidebar a:hover {
+    background: #555;
+}
+
+/* Admin logo in sidebar */
+.admin-logo {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #444;
+    margin-bottom: 10px;
+}
+
+.admin-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.admin-logo h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Content area */
+.content {
+    padding: 20px;
+    transition: margin-right 0.3s ease;
+    min-height: 100vh;
+}
+
+/* Push content when menu is open (optional) */
+.menu-toggle:checked ~ .content {
+    margin-right: 0;  /* Changed from 220px - prevents layout shift */
+}
+
+/* Overlay when menu is open */
+.menu-toggle:checked ~ .content::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9997;
+}
+
+/* Admin button styling */
+.admin-btn {
+    font-weight: bold;
+    color: white !important;
+    background: #333;
+    padding: 6px 14px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.admin-btn:hover {
+    background: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .menu-icon {
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        padding: 6px 10px;
+    }
+    
+    .sidebar {
+        width: 220px;
+        right: -220px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 80%;
+        right: -80%;
+    }
+}
+/* ====================================
+   LANDING PAGE NAVBAR
+==================================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 9000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-right: 60px;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.top-nav .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #1d4ed8;
+}
+
+.nav-links a {
+    margin-left: 25px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links .cta-btn {
+    background: #1d4ed8;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* ====================================
+   HERO SECTION
+==================================== */
+.hero-landing {
+    background: url("login-bg.jpg") no-repeat center center/cover;
+    margin-top: 80px;
+    padding: 400px 400px;
+    color: white;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    margin: 0;
+}
+
+.hero-text p {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.hero-main-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: white;
+    color: #1d4ed8;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* ====================================
+   PAGE CONTENT BACKGROUND FIX
+==================================== */
+.page-content {
+    background: url("login-bg.jpg") no-repeat center center/cover;
+    padding: 50px;
+    min-height: 400px;
+    position: relative;
+    color: white;
+}
+
+.hero-landing::before,
+.page-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+.hero-landing *,
+.page-content * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ADMIN BACKGROUND */
+.admin-bg {
+    background: url("login-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.admin-logo {
+    text-align: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid #444;
+}
+
+.admin-logo img {
+    background: url("login-bg.jpg");
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 10px;
+}
+
+.admin-logo h2 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+/* ADMIN LOGIN BG */
+.admin-login-bg {
+    background: url("login-bg.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.admin-login-bg.center-page {
+    background: transparent !important;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #bbb;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: .25s ease;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #eaeaea;
+}
+
+
+/* ============================
+   ADMIN DASHBOARD CARDS
+============================ */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.dash-box {
+    background: white; /* Changed from rgba to solid white */
+    padding: 30px 25px; /* Better padding */
+    border-radius: 16px; /* Smoother corners */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px; /* Ensures uniform height */
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Stat Icon */
+.dash-box .stat-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.dash-box h2 {
+    font-size: 42px;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.dash-box p {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Color Gradient Overlays */
+.dash-box.blue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.dash-box.blue h2,
+.dash-box.blue p {
+    color: white;
+}
+
+.dash-box.sky {
+    background: linear-gradient(135deg, #0cebeb 0%, #20e3b2 100%);
+    color: white;
+}
+
+.dash-box.sky h2,
+.dash-box.sky p {
+    color: white;
+}
+
+.dash-box.green {
+    background: linear-gradient(135deg, #2ed573 0%, #1e8449 100%);
+    color: white;
+}
+
+.dash-box.green h2,
+.dash-box.green p {
+    color: white;
+}
+
+.dash-box.red {
+    background: linear-gradient(135deg, #ff6b6b 0%, #c0392b 100%);
+    color: white;
+}
+
+.dash-box.red h2,
+.dash-box.red p {
+    color: white;
+}
+
+.dash-box.purple {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+}
+
+.dash-box.purple h2,
+.dash-box.purple p {
+    color: white;
+}
+
+.dash-box.yellow {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+}
+
+.dash-box.yellow h2,
+.dash-box.yellow p {
+    color: white;
+}
+
+/* Stat Trend */
+.stat-trend {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.trend-up {
+    color: #2ed573;
+}
+
+.trend-down {
+    color: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+/* TABLE */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    color: #222;
+    background: rgba(255,255,255,0.9);
+}
+
+.table th, .table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.table th {
+    text-align: left;
+    background: rgba(0,0,0,0.05);
+}
+
+/* FORM ELEMENTS */
+.content label { display:block; margin-top:12px; font-weight:600; }
+
+.content input[type="text"], 
+.content input[type="number"], 
+.content textarea, 
+.content select {
+    width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;
+}
+
+.content button, .content a.admin-btn {
+    display:inline-block; padding:10px 16px; border-radius:6px; background:#1d4ed8; color:#fff; text-decoration:none; border:none; cursor:pointer;
+}
+
+.content a.admin-btn { background:#1d4ed8; margin-right:8px; }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+    .stats-box-container, .admin-cards { flex-direction:column; }
+    .table td img { width:80px; height:50px; }
+}
+
+/* ROOM CARDS (MERGED DUPLICATES) */
+.room-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.room-card {
+    background: rgba(255,255,255,0.9);
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.room-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.no-img {
+    width: 100%;
+    height: 150px;
+    background: #ddd;
+    border-radius: 8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CUSTOMER DASHBOARD BG */
+.customer-bg {
+    background: url("login-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* READABILITY BOX */
+.customer-content-wrapper {
+    background: rgba(255,255,255,0.85);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 1400px;
+}
+
+/* ============================
+   CUSTOMER PROFILE PAGE
+============================ */
+/* Profile Box - Enhanced */
+.profile-box {
+    max-width: 500px;  /* Slightly wider for better readability */
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);  /* More opaque */
+    padding: 35px;  /* More breathing room */
+    border-radius: 16px;  /* Softer corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);  /* Deeper shadow */
+    backdrop-filter: blur(10px);  /* Modern blur effect */
+}
+
+/* Page Title */
+.profile-box h1 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    color: #1f2937;
+    text-align: center;
+}
+
+.profile-box .subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Labels - Enhanced */
+.profile-box label {
+    font-weight: 600;
+    margin-top: 18px;
+    display: block;
+    color: #374151;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+/* Inputs - Enhanced */
+.profile-box input {
+    width: 100%;
+    padding: 13px 16px;
+    margin-top: 0;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+    box-sizing: border-box;
+}
+
+.profile-box input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.profile-box input[readonly] {
+    background: #f3f4f6;
+    color: #6b7280;
+    cursor: not-allowed;
+    border-color: #e5e7eb;
+}
+
+/* Edit Button - Enhanced */
+.edit-btn {
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: none;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    color: white;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.4);
+}
+
+.edit-btn:active {
+    transform: translateY(0);
+}
+
+/* Save Button - Enhanced */
+.save-btn {
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    color: white;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+}
+
+.save-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Delete Button - New */
+.delete-btn {
+    width: 100%;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    background: white;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+/* VIP Box - Enhanced */
+.vip-box {
+    margin-top: 30px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 6px solid #d4af37;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.vip-box h3 {
+    color: #92400e;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vip-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.vip-box li {
+    padding: 8px 0;
+    color: #78350f;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.vip-box li:before {
+    content: "✓";
+    background: #d4af37;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+
+/* Regular Box - Enhanced */
+.regular-box {
+    margin-top: 30px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left: 6px solid #3b82f6;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.regular-box h3 {
+    color: #1e40af;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.regular-box p {
+    color: #1e3a8a;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.vip {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #78350f;
+}
+
+.status-badge.regular {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .profile-box {
+        margin: 20px 15px;
+        padding: 25px 20px;
+    }
+    
+    .profile-box h1 {
+        font-size: 24px;
+    }
+    
+    .profile-box input {
+        font-size: 14px;
+        padding: 12px 14px;
+    }
+    
+    .edit-btn,
+    .save-btn,
+    .delete-btn {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+/* ===========================
+   RESTORE ROOM CARD BORDERS
+=========================== */
+
+.room-card {
+    border: 2px solid #d1d1d1;       /* soft light border */
+    border-radius: 14px;             /* smooth rounded edges */
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.20); /* soft card shadow */
+    padding: 15px;
+}
+
+/* Restore image border inside card */
+.room-img, .no-img {
+    border: 1px solid #bfbfbf;
+    border-radius: 10px;
+}
+
+/* ============================
+   MAKE ROOM CARDS MORE VISIBLE
+============================ */
+.room-card {
+    border: 3px solid rgba(0,0,0,0.3);
+    box-shadow: 0 0 12px rgba(0,0,0,0.4) !important;
+    background: rgba(255,255,255,0.95) !important;
+}
+
+/* ============================
+   MAKE YOUR BOOKINGS TABLE STAND OUT
+============================ */
+.table {
+    border: 3px solid rgba(0,0,0,0.35);
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    background: rgba(255,255,255,0.92);
+}
+
+/* Table rows */
+.table th, 
+.table td {
+    background: rgba(255,255,255,0.94);
+    border-bottom: 1px solid #ccc;
+}
+
+/* ============================
+   WRAP THE WHOLE DASHBOARD CONTENT
+============================ */
+.customer-content-wrapper {
+    border: 3px solid rgba(0,0,0,0.4);
+    box-shadow: 0 0 18px rgba(0,0,0,0.45);
+    background: rgba(255,255,255,0.92) !important;
+    padding: 35px;
+    border-radius: 14px;
+}
+
+/* ============================
+   VIP BANNER BOX (right corner)
+============================ */
+.vip-benefits-box {
+    border: 2px solid rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.95);
+    padding: 10px 16px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.dashboard-wrapper {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.delete-btn {
+    width: 100%;
+    background: #c0392b;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #a1271f;
+}
+/* ===========================================
+   ABOUT US - IMPROVED DESIGN
+=========================================== */
+/* Reduce About Us section height */
+.about-section {
+    padding: 40px 20px;  /* Reduced from likely 80-100px */
+    margin: 30px 0;  /* Reduced margin */
+    background: #f5f5f5;  /* Keep your background */
+}
+
+.about-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 40px;  /* Reduced from likely 50-60px */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about-title {
+    font-size: 32px;  /* Slightly smaller */
+    margin: 0 0 15px 0;  /* Reduced bottom margin */
+    color: #2c3e50;
+}
+
+.about-description {
+    font-size: 16px;
+    line-height: 1.6;  /* Tighter line height */
+    color: #555;
+    margin: 0 0 20px 0;  /* Reduced bottom margin */
+}
+
+.about-cta {
+    margin-top: 15px;  /* Reduced from likely 25-30px */
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 12px 30px;  /* Slightly smaller padding */
+    background: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.about-btn:hover {
+    background: #1557b0;
+}
+
+/* Even more compact on mobile */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 30px 15px;
+    }
+    
+    .about-wrapper {
+        padding: 25px 20px;
+    }
+    
+    .about-title {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+    
+    .about-description {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+}
+/* Smooth Fade Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   NEW ADMIN DASHBOARD DESIGN
+=========================== */
+
+.admin-header {
+    background: rgba(255,255,255,0.9);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.admin-header p {
+    font-size: 18px;
+    margin-top: 8px;
+    color: #333;
+}
+
+.stat-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* DASHBOARD CARDS */
+.dash-box {
+    border-radius: 16px !important;
+    padding: 25px !important;
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+    text-align: center;
+}
+
+.dash-box h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.dash-box p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* COLORS */
+.blue { background: #1e3a8a !important; }
+.green { background: #047857 !important; }
+.yellow { background: #ca8a04 !important; }
+.red { background: #b91c1c !important; }
+.purple { background: #6b21a8 !important; }
+.sky { background: #0369a1 !important; }
+

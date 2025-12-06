@@ -1,0 +1,566 @@
+/* ===========================
+   BOOKING PREVIEW PAGE STYLES
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('login-bg.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* ===========================
+   HAMBURGER MENU
+=========================== */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    font-size: 32px;
+    cursor: pointer;
+    background: #3b82f6;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    z-index: 99999;
+    border-radius: 12px;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    font-weight: bold;
+    user-select: none;
+    pointer-events: auto;
+}
+
+#menu-toggle:checked ~ .menu-icon {
+    right: 290px;
+    background: #1f2937;
+    color: white;
+}
+
+.menu-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.menu-icon:active {
+    transform: scale(0.95);
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: white;
+    padding-top: 120px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9998;
+    overflow-y: auto;
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+#menu-toggle:checked ~ .sidebar {
+    right: 0;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 25px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: white;
+}
+
+.sidebar-header h2 {
+    color: #1f2937;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    margin: 4px 0;
+}
+
+.sidebar-nav a:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.sidebar-nav a.active {
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+    color: #8b5cf6;
+    border-left-color: #8b5cf6;
+}
+
+.nav-icon {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+.logout-link {
+    color: #ef4444 !important;
+}
+
+.logout-link:hover {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+}
+
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   HEADER CARD
+=========================== */
+.header-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.header-emoji {
+    font-size: 2.5rem;
+}
+
+.header-text h1 {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.header-text p {
+    color: #718096;
+    font-size: 1rem;
+}
+
+.vip-section {
+    text-align: right;
+}
+
+.vip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.vip-badge.vip-active {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #744210;
+}
+
+.vip-badge.regular {
+    background: #f7fafc;
+    color: #718096;
+    border: 2px solid #e2e8f0;
+}
+
+/* ===========================
+   PREVIEW SECTION
+=========================== */
+.preview-section {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* ===========================
+   ROOM DETAILS CARD
+=========================== */
+.room-details-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.room-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.room-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room-no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.room-info {
+    padding: 2rem;
+}
+
+.room-title {
+    font-size: 1.8rem;
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.room-type {
+    color: #4169E1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.price-breakdown {
+    background: #f7fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-label {
+    font-size: 0.95rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.price-value {
+    font-size: 1.1rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.price-item.discount .price-label {
+    color: #f59e0b;
+}
+
+.price-item.discount .price-value {
+    color: #f59e0b;
+}
+
+.price-item.total {
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+.price-item.total .price-label {
+    font-size: 1.1rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.price-item.total .price-value {
+    font-size: 1.5rem;
+    color: #10b981;
+}
+
+/* ===========================
+   BOOKING FORM CARD
+=========================== */
+.booking-form-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+}
+
+.form-group input[type="date"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+}
+
+.nights-display {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #eff6ff;
+    border: 2px solid #3b82f6;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.nights-icon {
+    font-size: 1.5rem;
+}
+
+.nights-text {
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+    border: 2px solid #10b981;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.cost-label {
+    font-size: 1rem;
+    color: #065f46;
+    font-weight: 600;
+}
+
+.cost-value {
+    font-size: 1.5rem;
+    color: #10b981;
+    font-weight: 700;
+}
+
+.confirm-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* ===========================
+   VIP BENEFITS BOX
+=========================== */
+.vip-benefits-box {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 237, 78, 0.1) 100%);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.benefits-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.benefits-icon {
+    font-size: 1.5rem;
+}
+
+.benefits-header h4 {
+    font-size: 1.1rem;
+    color: #92400e;
+    font-weight: 700;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    color: #78350f;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.benefits-list li .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: #fbbf24;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* ===========================
+   OVERLAY
+=========================== */
+.menu-toggle:checked ~ .main-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9997;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 1024px) {
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .menu-icon {
+        top: 20px;
+        right: 20px;
+    }
+
+    #menu-toggle:checked ~ .menu-icon {
+        right: 290px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .vip-section {
+        text-align: center;
+    }
+
+    .room-image-container {
+        height: 200px;
+    }
+}

@@ -1,0 +1,1001 @@
+/* ===========================
+   GLOBAL DEFAULTS
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: black;
+    overflow-x: hidden;
+}
+
+/* ====================================
+   LANDING PAGE NAVBAR - ENHANCED
+==================================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    z-index: 9000;
+    transition: all 0.3s ease;
+}
+
+.top-nav .logo {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    background: rgba(29, 78, 216, 0.08);
+    color: #1d4ed8;
+}
+
+.nav-links .cta-btn {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    color: white !important;
+    font-weight: 700;
+    padding: 12px 28px;
+    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3);
+    border: none;
+}
+
+.nav-links .cta-btn:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.4);
+}
+
+.nav-links .admin-btn {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    color: white !important;
+    font-weight: 700;
+    padding: 12px 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links .admin-btn:hover {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ====================================
+   ENHANCED HERO SECTION
+==================================== */
+.hero-landing-modern {
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.9) 0%, rgba(124, 58, 237, 0.8) 100%), 
+                url("login-bg.jpg") no-repeat center center/cover;
+    margin-top: 80px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    padding: 80px 60px;
+    overflow: hidden;
+}
+
+.hero-landing-modern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.3) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.hero-content-modern {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome-header h1 {
+    font-size: 64px;
+    margin: 0;
+    font-weight: 900;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: -2px;
+    line-height: 1.1;
+    animation: fadeInUp 0.8s ease;
+}
+
+.welcome-header p {
+    margin-top: 24px;
+    font-size: 24px;
+    opacity: 0.95;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====================================
+   ROOMS SHOWCASE SECTION - ENHANCED
+==================================== */
+.rooms-showcase-section {
+    background: linear-gradient(180deg, #f8fafc 0%, #e5e7eb 100%);
+    padding: 80px 60px;
+    position: relative;
+}
+
+.rooms-showcase-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    color: #1f2937;
+    font-size: 48px;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.view-all-link {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-all-link:hover {
+    color: #1e40af;
+    transform: translateX(5px);
+}
+
+/* ====================================
+   ULTRA MODERN ROOM CARDS
+==================================== */
+.room-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.room-card-modern {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.room-card-modern:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(29, 78, 216, 0.15);
+}
+
+.badge-vip {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 3;
+    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.badge-available {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 3;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.room-img-modern {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.room-card-modern:hover .room-img-modern {
+    transform: scale(1.08);
+}
+
+.no-img-modern {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.room-card-modern:hover .no-img-modern {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.room-details-modern {
+    padding: 32px;
+}
+
+.room-details-modern h3 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    color: #1f2937;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.room-type {
+    color: #6b7280;
+    font-size: 13px;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.room-desc {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+}
+
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid #f3f4f6;
+}
+
+.price-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-label {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.price-amount {
+    font-size: 32px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    margin-top: 4px;
+    letter-spacing: -1px;
+}
+
+.book-btn-modern {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+.book-btn-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+}
+
+/* ====================================
+   ENHANCED ABOUT SECTION
+==================================== */
+.about-section-modern {
+    padding: 100px 60px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section-modern::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.about-wrapper-modern {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.about-title {
+    font-size: 52px;
+    margin: 0 0 24px 0;
+    color: #1f2937;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.about-description {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin: 0 0 60px 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.feature-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(29, 78, 216, 0.12);
+    border-color: rgba(29, 78, 216, 0.2);
+}
+
+.feature-icon {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.feature-item h4 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.about-btn-modern {
+    display: inline-block;
+    padding: 18px 56px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 30px rgba(29, 78, 216, 0.3);
+}
+
+.about-btn-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(29, 78, 216, 0.4);
+    background: linear-gradient(135deg, #7c3aed 0%, #1d4ed8 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-nav {
+        padding: 18px 24px;
+    }
+    
+    .top-nav .logo {
+        font-size: 24px;
+    }
+    
+    .nav-links {
+        gap: 6px;
+    }
+    
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+    
+    .hero-landing-modern {
+        padding: 60px 24px;
+        min-height: 400px;
+    }
+    
+    .welcome-header h1 {
+        font-size: 40px;
+    }
+    
+    .welcome-header p {
+        font-size: 18px;
+    }
+    
+    .rooms-showcase-section {
+        padding: 60px 24px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 36px;
+    }
+    
+    .room-grid-modern {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-section-modern {
+        padding: 60px 24px;
+    }
+    
+    .about-title {
+        font-size: 36px;
+    }
+    
+    .about-description {
+        font-size: 16px;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+/* ===========================
+   GLOBAL DEFAULTS
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+
+/* ====================================
+   LANDING PAGE NAVBAR - REDESIGNED
+==================================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 50px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    z-index: 9000;
+    backdrop-filter: blur(10px);
+}
+
+.top-nav .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1d4ed8;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    padding: 8px 18px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: #f3f4f6;
+    color: #1d4ed8;
+}
+
+.nav-links .cta-btn {
+    background: #1d4ed8;
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 24px;
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.3);
+}
+
+.nav-links .cta-btn:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4);
+}
+
+.nav-links .admin-btn {
+    background: #374151;
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 24px;
+}
+
+.nav-links .admin-btn:hover {
+    background: #1f2937;
+}
+
+/* ====================================
+   MODERN HERO SECTION (Dashboard Style)
+==================================== */
+.hero-landing-modern {
+    background: url("login-bg.jpg") no-repeat center center/cover;
+    margin-top: 80px;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    position: relative;
+    padding: 60px 50px;
+}
+
+.hero-landing-modern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content-modern {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.welcome-header h1 {
+    font-size: 48px;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-header p {
+    margin-top: 15px;
+    font-size: 20px;
+    opacity: 0.95;
+}
+
+/* ====================================
+   ROOMS SHOWCASE SECTION
+==================================== */
+.rooms-showcase-section {
+    background: url("login-bg.jpg") no-repeat center center/cover;
+    padding: 60px 50px;
+    position: relative;
+}
+
+.rooms-showcase-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.rooms-showcase-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    color: white;
+    font-size: 36px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.view-all-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+    opacity: 0.8;
+}
+
+/* ====================================
+   MODERN ROOM CARDS
+==================================== */
+.room-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.room-card-modern {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.room-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.badge-vip {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-available {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #10b981;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.room-img-modern {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.no-img-modern {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.room-details-modern {
+    padding: 24px;
+}
+
+.room-details-modern h3 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.room-type {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.room-desc {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.price-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-label {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.price-amount {
+    font-size: 24px;
+    color: #6366f1;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.book-btn-modern {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.book-btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+}
+
+/* ====================================
+   MODERN ABOUT SECTION
+==================================== */
+.about-section-modern {
+    padding: 80px 50px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.about-wrapper-modern {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 42px;
+    margin: 0 0 20px 0;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.about-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin: 0 0 50px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.feature-item {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.about-btn-modern {
+    display: inline-block;
+    padding: 16px 48px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+}
+
+.about-btn-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-nav {
+        padding: 15px 20px;
+    }
+    
+    .top-nav .logo {
+        font-size: 22px;
+    }
+    
+    .nav-links {
+        gap: 5px;
+    }
+    
+    .nav-links a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    
+    .hero-landing-modern {
+        padding: 40px 20px;
+        min-height: 280px;
+    }
+    
+    .welcome-header h1 {
+        font-size: 32px;
+    }
+    
+    .welcome-header p {
+        font-size: 16px;
+    }
+    
+    .rooms-showcase-section {
+        padding: 40px 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 28px;
+    }
+    
+    .room-grid-modern {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-section-modern {
+        padding: 50px 20px;
+    }
+    
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}

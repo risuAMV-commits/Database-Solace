@@ -1,2 +1,0 @@
-# Database-Solace
-Database test
